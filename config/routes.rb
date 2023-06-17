@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   
   resources :mace
 
-  #post "/" "mace#new_shoe"
+  post "/mace/insert_item" => "mace#show"
 end

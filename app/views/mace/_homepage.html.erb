@@ -3,6 +3,9 @@
   </div>
 
   <div class="card-body">
+    <% @items.each do |item| %>
+      <%= item.quantity %>
+    <% end %>
   </div>
 
   <div class="card-footer">
