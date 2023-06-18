@@ -1,10 +1,16 @@
 <div class="card">
+<% @items.each do |item| %>
   <div class="card-header">
+    <%= item.name %>
   </div>
 
   <div class="card-body">
-    <% @items.each do |item| %>
-      <%= item.quantity %>
+  <img src="<%= item.image %>" class="d-flex align-self-center img-thumbnail ">
+    <ul>
+      <li><%= item.description %></li>
+      <li><%= item.quantity %></li>
+      <li><%= item.item_number %></li>
+    </ul>
     <% end %>
   </div>
 
