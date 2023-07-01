@@ -6,7 +6,6 @@
 <div class="d-flex justify-content-around row">
   <% @items.each do |item| %>
     <div class="mx-5 flex-end col-md-3">
-      <%#= render partial: "mace/homepage" %>
       <%= render partial: "mace/homepage", locals: { item: item } %>
     </div>
   <% end %>

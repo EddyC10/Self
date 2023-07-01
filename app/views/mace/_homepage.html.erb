@@ -73,6 +73,25 @@
       </dl>
     </div>
     </div>
+    
+     <div class="row">
+      <div class="col">
+        <div class="d-grid">
+          <!--<a href="/mace/<% item.id %>/edit" class="btn btn-warning btn-lg btn-block">-->
+          <%= link_to edit_mace_path(item), class: "btn btn-warning btn-lg btn-block" do %>
+            <span><i class="fa-regular fa-pen-to-square"></i></span>
+          <% end %>
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-grid">
+          <a href="/delete/<%= item.id %>" method="post" class="btn btn-danger btn-lg btn-block">
+            <span><i class="fa-regular fa-trash-can"></i></span>
+          </a>
+        </div>
+      </div>
+      </div>
     </div>
 
    
@@ -84,4 +103,6 @@
   </div>
 </div>
 
-<!-- <div class="row"><div class="d-grid btn btn-large btn-block"></div></div> -->
+ <div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
+ <div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
+ <div class="row"><div class="d-grid btn btn-large btn-block"></div></div> 

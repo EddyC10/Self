@@ -10,6 +10,8 @@ class MaceController < ApplicationController
   end
 
   def show
+    @item = params.fetch(:id)
+
     item = Item.new
 
     item.name = params.fetch("name")
@@ -23,8 +25,17 @@ class MaceController < ApplicationController
     redirect_to "/"
   end
 
-  def contact
+  def edit
+    @item = Item.find(params.fetch(:id))
+    #render "edit.html.erb"
+  end
 
+  def contact
     render "contact.html.erb"
   end
+
+  def locations
+    render "locations.html.erb"
+  end
+
 end 
