@@ -27,6 +27,7 @@
 -->
 
 <div class="card">
+
   <div class="card-header bg-primary">
     <h5 class="text-light"><%= item.name %></h5>
   </div>
@@ -43,41 +44,43 @@
 
     <div class="col">
       <dl>
+
       <dt>
-          Name
-        </dt>
-        <dd>
-          <%= item.name %>
-        </dd>
-        <dt>
-          Description
-        </dt>
-        <dd>
-          <%= item.description %>
-        </dd>
+        Name
+      </dt>
+      <dd>
+        <%= item.name %>
+      </dd>
 
-        <dt>
-          Quantity
-        </dt>
-        <dd>
-          <%= item.quantity %>
-        </dd>
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= item.description %>
+      </dd>
 
-        <dt>
-          Item #
-        </dt>
-        <dd>
-          <%= item.item_number %>
-        </dd>
+      <dt>
+        Quantity
+      </dt>
+      <dd>
+        <%= item.quantity %>
+      </dd>
+
+      <dt>
+        Item #
+      </dt>
+      <dd>
+        <%= item.item_number %>
+      </dd>
 
       </dl>
     </div>
-    </div>
+  </div>
     
-     <div class="row">
+    <% if @current_user != nil %>
+    <div class="row">
       <div class="col">
         <div class="d-grid">
-          <!--<a href="/mace/<% item.id %>/edit" class="btn btn-warning btn-lg btn-block">-->
           <%= link_to edit_mace_path(item), class: "btn btn-warning btn-lg btn-block" do %>
             <span><i class="fa-regular fa-pen-to-square"></i></span>
           <% end %>
@@ -86,22 +89,24 @@
       </div>
       <div class="col">
         <div class="d-grid">
-          <a href="/delete/<%= item.id %>" method="post" class="btn btn-danger btn-lg btn-block">
+          <a href="/delete/<%= item.id %>" method="get" class="btn btn-danger btn-lg btn-block">
             <span><i class="fa-regular fa-trash-can"></i></span>
           </a>
         </div>
       </div>
-      </div>
     </div>
+    <% else %>
+    <% end %>
+  </div>
 
    
     
     
-
-  <div class="card-footer bg-primary">
-    <h5 class="text-light">Last updated <%= time_ago_in_words(item.updated_at) %> ago</h2>
+    <div class="card-footer bg-primary">
+      <!--<h5 class="text-light">Last updated <%= time_ago_in_words(item.updated_at) %> ago</h2>-->
+      <h5></h5>
+    </div>
   </div>
-</div>
 
  <div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
  <div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
