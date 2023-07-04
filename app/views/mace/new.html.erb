@@ -1,33 +1,35 @@
-<h1 class="col">Add new item</h1>
+<div class="col mx-3">
+  <h1>Add new item</h1>
 
-<hr>
+  <hr>
 
-<form action="/mace/insert_item" method="post" class="col">
+  <form action="/mace/insert_item" method="post">
 
-  <label for="name">Item Name</label>
-  <input id="name" type="text" name="name">
+    <label for="name">Item Name</label>
+    <input id="name" type="text" name="name">
 
-  <br>
+    <br>
 
-  <label for="image">Image</label>
-  <input id="image" type="text" name="image">
+    <label for="description">Description</label>
+    <textarea id="description" name="description"></textarea>
 
-  <br>
+    <br>
 
-  <label for="description">description</label>
-  <textarea id="description" name="description"></textarea>
+    <label for="quantity">Quantity</label>
+    <input id="quantity" type="number" name="quantity">
 
-  <br>
+    <br>
 
-  <label for="quantitu">Quantity</label>
-  <input id="quantity" type="number" name="quantity">
+    <label for="item_number">Item Number</label>
+    <input id="item_number" type="text" name="item_number">
 
-  <br>
+    <br>
 
-  <label for="item_number">Item Number</label>
-  <input id="item_number" type="text" name="item_number">
+    <label for="in_stock">In Stock</label>
+    <input id="in_stock" type="checkbox" name="in_stock">
 
-  <br>
+    <br>
 
-  <button>Submit</button>
-</form>
+    <button>Submit</button>
+  </form>
+</div>

@@ -1,33 +1,52 @@
-<h1 class="col">Edit item</h1>
+<div class="col mx-3">
+  <h1 class="col">Edit item</h1>
+
+  <hr>
+
+  <form action="/mace/edit_item/<%= @item.id %>" method="post" class="col">
+
+    <label for="name">Item Name</label>
+    <input id="name" type="text" name="name" value="<%= @item.name %>">
+
+    <br>
+
+    <label for="description">description</label>
+    <textarea id="description" name="description" ><%= @item.description %></textarea>
+
+    <br>
+
+    <label for="quantitu">Quantity</label>
+    <input id="quantity" type="number" name="quantity" value="<%= @item.quantity %>">
+
+    <br>
+
+    <label for="item_number">Item Number</label>
+    <input id="item_number" type="text" name="item_number" value="<%= @item.item_number %>">
+
+    <br>
+
+    <button>Submit</button>
+  </form>
+</div>
 
 <hr>
 
-<form action="/mace/edit_item/<%= @item.id %>" method="post" class="col">
+<div class="col mx-3">
 
-  <label for="name">Item Name</label>
-  <input id="name" type="text" name="name" value="<%= @item.name %>">
+  <form action="/insert_photo" method="post" enctype="multipart/form-data">
 
-  <br>
+    <label for="item_id">Item_id</label>
+    <input id="item_id" type="integer" name="item_id" value="<%= @item.id %>">
 
-  <label for="image">Image</label>
-  <input id="image" type="text" name="image" value="<%= @item.image %>">
+    <br>
 
-  <br>
+    <label for="photo">Image</label>
+    <input id="photo" type="file" name="photo">
 
-  <label for="description">description</label>
-  <textarea id="description" name="description" ><%= @item.description %></textarea>
+    <br>
 
-  <br>
+    <button>Submit</button>
 
-  <label for="quantitu">Quantity</label>
-  <input id="quantity" type="number" name="quantity" value="<%= @item.quantity %>">
+  </form>
 
-  <br>
-
-  <label for="item_number">Item Number</label>
-  <input id="item_number" type="text" name="item_number" value="<%= @item.item_number %>">
-
-  <br>
-
-  <button>Submit</button>
-</form>
+</div>

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   #------------------------------
 
   root "mace#index"
+  post "/insert_photo" => "mace#insert_photo"
   post "/mace/edit_item/:id" => "mace#update"
   get "/mace/contact" => "mace#contact"
   get "/mace/locations" => "mace#locations"

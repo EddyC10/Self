@@ -16,7 +16,7 @@ class MaceController < ApplicationController
     item.description = params.fetch("description")
     item.quantity = params.fetch("quantity")
     item.item_number = params.fetch("item_number")
-    item.image = params.fetch("image")
+    item.in_stock = params.fetch("in_stock")
 
     item.save
 
@@ -42,6 +42,17 @@ class MaceController < ApplicationController
 
     redirect_to "/"
 
+  end
+
+  def insert_photo
+
+    photo = Photo.new
+
+    photo.item_id = params.fetch("item_id")
+    photo.photo = params.fetch("photo")
+
+    photo.save
+    
   end
 
   def contact
