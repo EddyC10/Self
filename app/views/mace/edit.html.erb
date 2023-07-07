@@ -25,6 +25,13 @@
 
     <br>
 
+    <label for="in_stock">In Stock</label>
+    <% if @item.in_stock == true %>
+    <input id="in_stock" type="checkbox" name="in_stock" checked >
+    <% elsif @item.in_stock == false%>
+    <input id="in_stock" type="checkbox" name="in_stock" >
+    <% end %>
+
     <button>Submit</button>
   </form>
 </div>
@@ -32,6 +39,7 @@
 <hr>
 
 <div class="col mx-3">
+  <h1>Upload a photo</h1>
 
   <form action="/insert_photo" method="post" enctype="multipart/form-data">
 

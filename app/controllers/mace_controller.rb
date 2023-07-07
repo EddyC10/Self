@@ -1,6 +1,6 @@
 class MaceController < ApplicationController 
   def index
-    @items = Item.all
+    @items = Item.all.order(name: :asc)
   end
 
   def new
@@ -36,7 +36,7 @@ class MaceController < ApplicationController
     item.description = params.fetch("description")
     item.quantity = params.fetch("quantity")
     item.item_number = params.fetch("item_number")
-    item.image = params.fetch("image")
+    item.in_stock = params.fetch("in_stock")
 
     item.save
 
@@ -52,7 +52,8 @@ class MaceController < ApplicationController
     photo.photo = params.fetch("photo")
 
     photo.save
-    
+
+    redirect_to "/", notice: "Photo added successfully"
   end
 
   def contact
