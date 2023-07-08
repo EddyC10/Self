@@ -42,26 +42,22 @@
   <div id="<%= item.id %>" class="carousel slide">
     <div class="carousel-inner">
     <% item_photos = Photo.where(item_id: item.id) %>
-    <div class="carousel-item active">
-        <img src="<%= item_photos.first.photo %>" class="d-block img-thumbnail" alt="main_photo">
-    </div>
-
-    <% item_photos.each do |photo| %>
-    <div class="carousel-item">
-        <img src="<%= photo.photo %>" class="d-block img-thumbnail" alt="main_photo">
-    </div>
+    <% i = 0 %>
+    <% while i <= item_photos.count %>
+      <% if i == 0 %>
+        <div class="carousel-item active">
+            <img src="<%= item_photos[i].photo %>" class="d-block img-thumbnail" alt="main_photo">
+        </div>
+        <% i = i + 1%>
+      <% end %>
+      <% if i > 0 and i < item_photos.count%>
+        <div class="carousel-item">
+            <img src="<%= item_photos[i].photo %>" class="d-block img-thumbnail" alt="main_photo">
+        </div>
+        <% i = i + 1%>
+      <% end %>
+    <% i = i + 1%>
     <% end %>
-<!--
-    <%# item.photos.each do |photo| %>
-      <div class="carousel-item active">
-      <%# if photo.item_id == item.id %>
-        <img src="<%#= photo.photo %>" class="d-block img-thumbnail" alt="main_photo">
-      </div>
-      <%# else %>
-      <%# end %>
-    <%# end %>
--->
-
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#<%= item.id %>" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -79,14 +75,6 @@
   
   <!-- Testing above this point -->
 
-<!--
-    <div class="col align-self-center">
-      <dl>
-        <dt>Image</dt>
-        <dd><img src="" class="img-thumbnail"></dd>
-      </dl>
-    </div>
--->
     <div class="col">
       <dl>
       <% if @current_user != nil %>
