@@ -37,13 +37,13 @@
   <div class="row">
 
   <!-- Testing beyong this point -->
-
+<% item_photos = Photo.where(item_id: item.id) %>
+<% i = 0 %>
 <div class="col align-self-center">
   <div id="<%= item.id %>" class="carousel slide">
     <div class="carousel-inner">
-    <% item_photos = Photo.where(item_id: item.id) %>
-    <% i = 0 %>
     <% while i <= item_photos.count %>
+    <% if item_photos[0] != nil %>
       <% if i == 0 %>
         <div class="carousel-item active">
             <img src="<%= item_photos[i].photo %>" class="d-block img-thumbnail" alt="main_photo">
@@ -56,6 +56,8 @@
         </div>
         <% i = i + 1%>
       <% end %>
+    <% else %>
+    <% end %>
     <% i = i + 1%>
     <% end %>
     </div>
@@ -69,8 +71,6 @@
     </button>
   </div>
 </div>
-
-
 
   
   <!-- Testing above this point -->
