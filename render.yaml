@@ -1,18 +1,18 @@
 databases:
-  - name: mace.com
-    databaseName: mace.com
-    user: mace.com
+  - name: mace
+    databaseName: mace
+    user: mace
 
 services:
   - type: web
-    name: mace.com
+    name: mace
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mace.com
+          name: mace
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
