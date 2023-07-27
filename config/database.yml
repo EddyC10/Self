@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql #sqlite3 --> this was the default before changing it to postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
+
+  #Added the URL below
+  url: <% ENV[https://eddyc10-shiny-umbrella-j6x95jq7r47cj6rp-3000.preview.app.github.dev/rails/db] %>
+  #Added the URL above
+  
   database: db/production.sqlite3
