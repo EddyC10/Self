@@ -5,21 +5,30 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql #sqlite3 --> this was the default before changing it to postgresql
-  # encoding: unicode #added this from render documents
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  database: mace_supply
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  
+
+#default: &default
+#  adapter: postgresql #sqlite3 --> this was the default before changing it to postgresql
+  # encoding: unicode #added this from render documents
+ # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  timeout: 5000
+
+#development:
+#  <<: *default
+#  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/test.sqlite3
 
 production:
   <<: *default
@@ -28,4 +37,4 @@ production:
   url: <%= ENV['https://eddyc10-shiny-umbrella-j6x95jq7r47cj6rp-3000.preview.app.github.dev/rails/db'] %>
   #Added the URL above
   
-  database: db/production.sqlite3
+  #database: db/production.sqlite3
